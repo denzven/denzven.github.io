@@ -1,21 +1,21 @@
 <head>
 	<meta name="google-site-verification" content="0kbZW1lkqGySrG52sUb8Vpiry_SDg_0uzQB8WTyvXDw" />
-	<title>Denzven-Graphing-Api</title>
+	<title>www.denzven.tk</title>
 	<meta charset="utf-8" />
 	<!-- Primary Meta Tags -->
-	<meta name="title" content="Denzven-Graphing-Api">
-	<meta name="description" content="An awesome,Free and open-source API for plotting graphs for any formulaequation with a wide variety of customizations and daily updates! made with love by Denzven">
+	<meta name="title" content="www.denzven.tk">
+	<meta name="description" content="My website that covers my hobbies,projects and more">
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://www.denzven.tk">
 	<meta property="og:title" content="Denzven-Graphing-Api">
-	<meta property="og:description" content="An awesome,Free and open-source API for plotting graphs for any formulaequation with a wide variety of customizations and daily updates! made with love by Denzven">
+	<meta property="og:description" content="My website that covers my hobbies,projects and more">
 	<meta property="og:image" content="https://cdn.discordapp.com/attachments/775096810963468288/858610022581534760tenor.gif">
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image">
 	<meta property="twitter:url" content="https://www.denzven.tk">
 	<meta property="twitter:title" content="Denzven-Graphing-Api">
-	<meta property="twitter:description" content="An awesome,Free and open-source API for plotting graphs for anyformula/equation with a wide variety of customizations and daily updates! made with love by Denzven">
+	<meta property="twitter:description" content="My website that covers my hobbies,projects and more">
 	<meta property="twitter:image" content="https://cdn.discordapp.com/attachments/775096810963468288/858610022581534760/tenor.gif">
 
 </head>
