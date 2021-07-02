@@ -7,8 +7,8 @@ right now i am making an Graphing API and its wrapper.
 ## These are my Projects
 ---
 
-https://denzven.pythonanywhere.com
-https://github.com/denzven/Denzven-Graphing-Api
-https://www.denzven.tk/Denzven-Graphing-Api
-https://github.com/denzven/Denzven-Graphing-Api-Bot
-https://www.denzven.tk/Denzven-Graphing-Api-Bot
+https://denzven.pythonanywhere.com  
+https://github.com/denzven/Denzven-Graphing-Api  
+https://www.denzven.tk/Denzven-Graphing-Api  
+https://github.com/denzven/Denzven-Graphing-Api-Bot  
+https://www.denzven.tk/Denzven-Graphing-Api-Bot  
