@@ -1,0 +1,245 @@
+:root {
+  --bg-dark: #000000; /* Pure Black */
+  --bg-card: rgba(20, 35, 20, 0.7); /* Deep lush green/black */
+  --text-main: #f0fdf4;
+  --text-muted: #bbf7d0;
+  
+  --accent-neon-green: #4ade80; /* Brighter Kerala green */
+  --accent-neon-blue: #38bdf8;
+  --accent-terracotta: #ea580c; /* Warm terracotta/brick */
+  --accent-gold: #fbbf24; /* Warm gold/brass for Uruli */
+
+  --font-heading: 'League Spartan', sans-serif; /* Bold, geometric modern look */
+  --font-subheading: 'Outfit', sans-serif;
+  --font-body: 'Outfit', sans-serif; /* Clean, modern body */
+  --font-tech: 'Inter', sans-serif; /* For terminals and buttons */
+
+  --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+  --glass-blur: blur(12px);
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Animated Background Blobs */
+body::before, body::after {
+  content: '';
+  position: absolute;
+  width: 60vw;
+  height: 60vw;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: -1;
+  animation: float 20s infinite ease-in-out alternate;
+  opacity: 0.15;
+}
+
+body::before {
+  top: -10%;
+  left: -10%;
+  background: radial-gradient(circle, var(--accent-neon-green) 0%, transparent 70%);
+}
+
+body::after {
+  bottom: -10%;
+  right: -10%;
+  background: radial-gradient(circle, var(--accent-gold) 0%, transparent 70%);
+  animation-delay: -10s;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(10vw, 5vh) scale(1.1); }
+  100% { transform: translate(-5vw, 15vh) scale(0.9); }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Minimal Typography utilities */
+.tech-font {
+  font-family: 'Fira Code', monospace;
+}
+
+.hover-white:hover {
+  color: white !important;
+}
+
+.nav-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.desktop-nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .desktop-nav {
+    display: flex;
+  }
+}
+
+/* Typography Headings */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Glassmorphism Classes */
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Premium Minimalist Classes */
+.glass-panel {
+  background: transparent;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+  transition: transform 0.3s ease;
+}
+
+.minimal-card {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.minimal-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(20, 20, 20, 0.6);
+}
+
+.glass-panel:hover {
+  transform: translateY(-4px);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--text-main) 0%, var(--text-muted) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-accent {
+  background: linear-gradient(135deg, var(--accent-neon-green) 0%, var(--accent-gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Typography Utilities */
+.text-neon-green { color: var(--accent-neon-green); }
+.text-neon-blue { color: var(--accent-neon-blue); }
+.text-terracotta { color: var(--accent-terracotta); }
+.text-gold { color: var(--accent-gold); }
+
+.bg-neon-green { background-color: var(--accent-neon-green); }
+.bg-neon-blue { background-color: var(--accent-neon-blue); }
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-neon-blue), var(--accent-neon-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Layout */
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  font-family: var(--font-heading);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-neon-blue), var(--accent-neon-green));
+  color: #000;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--accent-neon-blue);
+  color: var(--accent-neon-blue);
+}
+
+.btn-secondary:hover {
+  background: rgba(0, 243, 255, 0.1);
+}
+
+/* XYFlow custom styles for dark theme */
+.react-flow__node {
+  background: var(--bg-card) !important;
+  color: var(--text-main) !important;
+  border: var(--glass-border) !important;
+  border-radius: 8px !important;
+}
+
+.react-flow__handle {
+  background: var(--accent-neon-green) !important;
+}
+
+/* Custom Cursor Rules (Only for devices with a mouse) */
+@media (pointer: fine) {
+  body, a, button, input, textarea, select, .react-flow__node, .react-flow__pane, .react-flow__handle {
+    cursor: none !important;
+  }
+}
