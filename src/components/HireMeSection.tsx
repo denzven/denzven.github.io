@@ -5,15 +5,7 @@ import { FileText } from 'lucide-react';
 export const HireMeSection: React.FC = () => {
   const [isBegging, setIsBegging] = useState(false);
 
-  const [showPDF, setShowPDF] = useState(false);
 
-  const handleBeg = () => {
-    if (isBegging) return;
-    setIsBegging(true);
-    setTimeout(() => {
-      setIsBegging(false);
-    }, 4000);
-  };
 
   // Generate particles for the flood
   const particles = Array.from({ length: 50 }).map((_, i) => {
