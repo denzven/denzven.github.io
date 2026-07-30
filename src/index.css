@@ -248,3 +248,46 @@ a {
     cursor: none !important;
   }
 }
+
+/* Fizzing Green Liquid Footer */
+.fizzing-footer {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(to top, rgba(10, 30, 15, 0.9), var(--bg-dark));
+  border-top: 1px solid rgba(57, 255, 20, 0.2);
+  box-shadow: 0 -10px 40px rgba(57, 255, 20, 0.05);
+}
+
+.fizzing-footer::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #39ff14;
+  box-shadow: 0 0 20px 8px rgba(57, 255, 20, 0.5);
+  z-index: 1;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -20px;
+  border-radius: 50%;
+  background: rgba(57, 255, 20, 0.4);
+  box-shadow: 0 0 10px rgba(57, 255, 20, 0.8), inset 0 0 5px rgba(255, 255, 255, 0.6);
+  animation: fizz 4s infinite ease-in;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes fizz {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-200px) scale(0.5);
+    opacity: 0;
+  }
+}

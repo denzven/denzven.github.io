@@ -107,14 +107,30 @@ function App() {
 
       </main>
 
-      <footer style={{ 
-        position: 'relative', zIndex: 10, textAlign: 'center', 
-        padding: '3rem 2rem', color: 'var(--text-muted)',
-        borderTop: '1px solid rgba(255,255,255,0.05)',
-        fontSize: '0.9rem', marginTop: '4rem'
+      <footer className="fizzing-footer" style={{ 
+        position: 'relative', textAlign: 'center', 
+        padding: '4rem 2rem', color: 'var(--text-muted)',
+        fontSize: '0.9rem', marginTop: '4rem', zIndex: 10
       }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center' }}>
-          <p style={{ margin: 0 }}>Built with Google Antigravity & React.</p>
+        {/* Animated Bubbles */}
+        {Array.from({ length: 40 }).map((_, i) => (
+          <div 
+            key={`bubble-${i}`} 
+            className="bubble"
+            style={{
+              left: `${Math.random() * 100}%`,
+              width: `${Math.random() * 15 + 5}px`,
+              height: `${Math.random() * 15 + 5}px`,
+              animationDuration: `${Math.random() * 3 + 2}s`,
+              animationDelay: `${Math.random() * 2}s`
+            }}
+          />
+        ))}
+
+        <div style={{ position: 'relative', zIndex: 5, maxWidth: '1200px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center' }}>
+          <p style={{ margin: 0, fontWeight: 'bold', color: '#fff', textShadow: '0 0 8px rgba(57, 255, 20, 0.8)' }}>
+            Built with Google Antigravity & React.
+          </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', margin: '0.5rem 0' }}>
             <a href="https://github.com/denzven" target="_blank" rel="noreferrer" className="nav-link hover-white">GitHub</a>
             <span>&bull;</span>
