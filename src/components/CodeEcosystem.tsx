@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export const CodeEcosystem: React.FC = () => {
   const [formula, setFormula] = useState('sin(x)+cos(y)');
-  const [imgSrc, setImgSrc] = useState('http://denzven.pythonanywhere.com/DenzGraphingApi/v1/flat_graph/test/plot?formula=sin(x)%2Bcos(y)');
+  const [imgSrc, setImgSrc] = useState('https://denzven.pythonanywhere.com/DenzGraphingApi/v1/flat_graph/test/plot?formula=sin(x)%2Bcos(y)');
   const [loading, setLoading] = useState(false);
   const [errorJson, setErrorJson] = useState<string | null>(null);
 
@@ -12,7 +12,8 @@ export const CodeEcosystem: React.FC = () => {
     setLoading(true);
     setErrorJson(null);
     const encoded = encodeURIComponent(formula);
-    const url = `http://denzven.pythonanywhere.com/DenzGraphingApi/v1/flat_graph/test/plot?formula=${encoded}`;
+    const targetUrl = `https://denzven.pythonanywhere.com/DenzGraphingApi/v1/flat_graph/test/plot?formula=${encoded}`;
+    const url = `https://corsproxy.io/?${encodeURIComponent(targetUrl)}`;
     
     try {
       const response = await fetch(url);
