@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 export const CodeEcosystem: React.FC = () => {
-  const [formula, setFormula] = useState('x+y');
-  const [imgSrc, setImgSrc] = useState('http://denzven.pythonanywhere.com/DenzGraphingApi/v1/flat_graph/test/plot?formula=x%2By');
+  const [formula, setFormula] = useState('sin(x)+cos(y)');
+  const [imgSrc, setImgSrc] = useState('http://denzven.pythonanywhere.com/DenzGraphingApi/v1/flat_graph/test/plot?formula=sin(x)%2Bcos(y)');
   const [loading, setLoading] = useState(false);
   const [errorJson, setErrorJson] = useState<string | null>(null);
 
@@ -30,7 +30,6 @@ export const CodeEcosystem: React.FC = () => {
         setImgSrc(URL.createObjectURL(blob));
       }
     } catch (err: any) {
-      // Fallback for CORS or network issues where we can't read the response
       setErrorJson(`Network/CORS Error: Could not fetch graph.\nMake sure the equation is valid (e.g. x+y).`);
       setImgSrc('');
     } finally {
@@ -39,98 +38,125 @@ export const CodeEcosystem: React.FC = () => {
   };
 
   return (
-    <section id="software" className="section-container">
-      <h2 className="section-title">Software Ecosystem & Algorithmic Logic</h2>
+    <section id="software">
+      <h2 className="section-title text-gradient-accent">Software Ecosystem</h2>
+      <p className="section-subtitle">
+        Building scalable infrastructure, full-stack applications, and algorithmic logic.
+      </p>
+
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
-        {/* Graphing API Live Demo */}
+        
+        {/* Graphing API Live Demo (Side-by-side layout) */}
         <motion.div 
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
-          className="minimal-card" style={{ gridColumn: '1 / -1', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+          className="royal-panel" style={{ gridColumn: '1 / -1', padding: '2rem' }}
         >
-          <h3 className="text-neon-blue" style={{ marginBottom: '1rem' }}>Live Demo: Graphing API</h3>
-          <form onSubmit={handleGraphSubmit} style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem', width: '100%', maxWidth: '500px' }}>
-            <input 
-              type="text" 
-              value={formula}
-              onChange={(e) => setFormula(e.target.value)}
-              placeholder="Enter equation (e.g., x^2+y^2=10)"
-              style={{ flex: 1, padding: '10px', borderRadius: '4px', border: '1px solid var(--accent-neon-blue)', background: 'rgba(0,0,0,0.5)', color: 'white' }}
-            />
-            <button type="submit" className="btn btn-primary" disabled={loading}>
-              {loading ? 'Rendering...' : 'Render Plot'}
-            </button>
-          </form>
-          
-          <div style={{ 
-            background: 'white', 
-            borderRadius: '8px', 
-            width: '100%', 
-            maxWidth: '500px', 
-            aspectRatio: '1 / 1',
-            display: 'flex', 
-            justifyContent: 'center', 
-            alignItems: 'center',
-            overflow: 'hidden',
-            padding: errorJson ? '1rem' : '0'
-          }}>
-            {loading ? (
-              <p style={{ color: 'black', fontFamily: 'monospace' }}>Rendering Graph...</p>
-            ) : errorJson ? (
-              <pre style={{ color: '#dc2626', background: '#fee2e2', padding: '1rem', borderRadius: '4px', width: '100%', height: '100%', overflow: 'auto', fontSize: '0.8rem', margin: 0 }}>
-                {errorJson}
-              </pre>
-            ) : imgSrc ? (
-              <img 
-                src={imgSrc} 
-                alt="Graphing API Output" 
-                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
-              />
-            ) : null}
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', alignItems: 'center' }}>
+            
+            {/* Left Column: Text and Form */}
+            <div style={{ flex: '1 1 300px', display: 'flex', flexDirection: 'column' }}>
+              <h3 className="text-blue" style={{ marginBottom: '1rem', fontSize: '1.4rem' }}>Live Demo: Graphing API</h3>
+              <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', maxWidth: '600px' }}>
+                A Python-based parametric graphing engine designed for rapid rendering of mathematical expressions.
+              </p>
+              
+              <form onSubmit={handleGraphSubmit} style={{ display: 'flex', gap: '1rem', width: '100%', maxWidth: '400px', flexWrap: 'wrap' }}>
+                <input 
+                  type="text" 
+                  value={formula}
+                  onChange={(e) => setFormula(e.target.value)}
+                  placeholder="Enter equation (e.g., sin(x)+cos(y))"
+                  style={{ flex: '1 1 200px', padding: '10px 14px', borderRadius: '8px', border: '1px solid var(--accent-lilac)', background: 'rgba(255,255,255,0.05)', color: 'white', outline: 'none' }}
+                />
+                <button type="submit" className="pastel-btn btn-primary" disabled={loading} style={{ padding: '10px 16px' }}>
+                  {loading ? '...' : 'Render'}
+                </button>
+              </form>
+            </div>
+            
+            {/* Right Column: Graph Output */}
+            <div style={{ flex: '1 1 300px', display: 'flex', justifyContent: 'center' }}>
+              <div style={{ 
+                background: 'rgba(255,255,255,0.02)', 
+                border: '1px solid rgba(255,255,255,0.1)',
+                borderRadius: '16px', 
+                width: '100%', 
+                maxWidth: '350px', 
+                aspectRatio: '1 / 1',
+                display: 'flex', 
+                justifyContent: 'center', 
+                alignItems: 'center',
+                overflow: 'hidden',
+                padding: errorJson ? '1rem' : '0'
+              }}>
+                {loading ? (
+                  <p style={{ color: 'var(--text-muted)', fontFamily: 'monospace' }}>Rendering...</p>
+                ) : errorJson ? (
+                  <pre style={{ color: '#ffb3b3', background: 'rgba(255,0,0,0.1)', padding: '1rem', borderRadius: '12px', width: '100%', height: '100%', overflow: 'auto', fontSize: '0.75rem', margin: 0 }}>
+                    {errorJson}
+                  </pre>
+                ) : imgSrc ? (
+                  <img 
+                    src={imgSrc} 
+                    alt="Graphing API Output" 
+                    style={{ width: '100%', height: '100%', objectFit: 'contain', background: 'white' }}
+                  />
+                ) : null}
+              </div>
+            </div>
+
           </div>
-          
-          <p style={{ marginTop: '1rem', fontFamily: 'monospace', color: 'var(--accent-neon-green)' }}>
-            &gt; Executing Graphing API. Powered by Python. Note: eval() is bad, but it works... Kinda...
-          </p>
         </motion.div>
 
-        {/* Projects */}
+        {/* Projects with bullet points */}
         <motion.div 
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="minimal-card"
+          className="royal-card" style={{ display: 'flex', flexDirection: 'column' }}
         >
-          <h3 className="text-gold">Lazer Showdown</h3>
-          <p>A strategic physics-based puzzle game built for ARISE festival. Utilizes vector calculations and Cartesian grid logic.</p>
-          <a href="https://denzven.github.io" target="_blank" className="btn btn-secondary" style={{ marginTop: '1rem' }}>Play Build</a>
+          <h3 className="text-gold" style={{ marginBottom: '1rem' }}>Lazer Showdown</h3>
+          <ul style={{ color: 'var(--text-muted)', lineHeight: '1.8', paddingLeft: '1.2rem', flex: 1 }}>
+            <li><strong>Type:</strong> Physics-based Puzzle Game</li>
+            <li><strong>Event:</strong> Developed for ARISE Tech Festival</li>
+            <li><strong>Core Mechanic:</strong> Utilizes vector calculations and Cartesian grid logic.</li>
+          </ul>
+          <a href="https://denzven.github.io" target="_blank" className="pastel-btn btn-secondary" style={{ alignSelf: 'flex-start', marginTop: '1.5rem' }}>Play Build</a>
         </motion.div>
         
         <motion.div 
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="minimal-card"
+          className="royal-card" style={{ display: 'flex', flexDirection: 'column' }}
         >
-          <h3 className="text-neon-green">Spyboy OSINT Ecosystem</h3>
-          <p>Contributed to a massive open-source cybersecurity Discord bot deployed across 6,800+ servers. Built modules for reconnaissance and automation.</p>
-          <a href="https://spyboy.in/" target="_blank" className="btn btn-secondary" style={{ marginTop: '1rem' }}>View Ecosystem</a>
+          <h3 className="text-blue" style={{ marginBottom: '1rem' }}>Spyboy OSINT Ecosystem</h3>
+          <ul style={{ color: 'var(--text-muted)', lineHeight: '1.8', paddingLeft: '1.2rem', flex: 1 }}>
+            <li><strong>Scale:</strong> Deployed across 6,800+ Discord servers.</li>
+            <li><strong>Role:</strong> Core open-source contributor.</li>
+            <li><strong>Focus:</strong> Automated intelligence gathering & reconnaissance modules.</li>
+          </ul>
+          <a href="https://spyboy.in/" target="_blank" className="pastel-btn btn-secondary" style={{ alignSelf: 'flex-start', marginTop: '1.5rem' }}>View Ecosystem</a>
         </motion.div>
 
         <motion.div 
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="glass-panel"
+          className="royal-card" style={{ display: 'flex', flexDirection: 'column' }}
         >
-          <h3 className="text-neon-blue">Object-Oriented Utilities</h3>
-          <p>Created <em>PetGame</em> (Java) demonstrating state management, and <em>Spotify_Album_Cover_ScreenShot_Maker</em> (DOM manipulation).</p>
-          <a href="https://github.com/denzven" target="_blank" className="btn btn-secondary" style={{ marginTop: '1rem' }}>View GitHub</a>
+          <h3 className="text-rose" style={{ marginBottom: '1rem' }}>Object-Oriented Utilities</h3>
+          <ul style={{ color: 'var(--text-muted)', lineHeight: '1.8', paddingLeft: '1.2rem', flex: 1 }}>
+            <li><strong>PetGame:</strong> Java-based robust state management application.</li>
+            <li><strong>Spotify Script:</strong> Advanced DOM manipulation for automated screenshot generation.</li>
+          </ul>
+          <a href="https://github.com/denzven" target="_blank" className="pastel-btn btn-secondary" style={{ alignSelf: 'flex-start', marginTop: '1.5rem' }}>View GitHub</a>
         </motion.div>
       </div>
     </section>

@@ -1,84 +1,94 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import {
-  ReactFlow,
-  MiniMap,
-  Controls,
-  Background,
-  BackgroundVariant,
-  useNodesState,
-  useEdgesState,
-} from '@xyflow/react';
-import '@xyflow/react/dist/style.css';
-
-const initialNodes = [
-  { id: '1', position: { x: 250, y: 5 }, data: { label: 'Bharati Vidyapeeth (BE Chemical)' } },
-  { id: '2', position: { x: 100, y: 100 }, data: { label: 'RCF: Continuous Flow (Sulphuric Acid)' } },
-  { id: '3', position: { x: 400, y: 100 }, data: { label: 'APL: Batch Kinetics (Specialty Chemicals)' } },
-  { id: '4', position: { x: 250, y: 200 }, data: { label: 'Research: Algal Biodiesel & Solid Propellants' } },
-  { id: '5', position: { x: 250, y: 300 }, data: { label: 'Process Optimization & AOP Scavengers' } },
-];
-
-const initialEdges = [
-  { id: 'e1-2', source: '1', target: '2', animated: true },
-  { id: 'e1-3', source: '1', target: '3', animated: true },
-  { id: 'e2-4', source: '2', target: '4' },
-  { id: 'e3-4', source: '3', target: '4' },
-  { id: 'e4-5', source: '4', target: '5', animated: true },
-];
+import { Beaker, Factory, FlaskConical, ArrowDown } from 'lucide-react';
 
 export const ChemicalProcess: React.FC = () => {
-  const [nodes, , onNodesChange] = useNodesState(initialNodes);
-  const [edges, , onEdgesChange] = useEdgesState(initialEdges);
-
   return (
-    <section id="engineering" className="section-container">
-      <h2 className="section-title">Chemical Engineering Paradigm</h2>
+    <section id="engineering">
+      <h2 className="section-title text-gradient-gold">Chemical Engineering Paradigm</h2>
+      <p className="section-subtitle">
+        Bridging the gap between molecular theory and industrial-scale production.
+      </p>
+      
+      {/* Process Flow Diagram */}
       <motion.div 
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="minimal-card" style={{ height: '500px', padding: '10px' }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.8 }}
+        className="royal-panel" 
+        style={{ padding: '2.5rem', marginBottom: '3rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}
       >
-        <ReactFlow
-          nodes={nodes}
-          edges={edges}
-          onNodesChange={onNodesChange}
-          onEdgesChange={onEdgesChange}
-          fitView
-          colorMode="dark"
-          zoomOnScroll={false}
-          panOnScroll={false}
-          preventScrolling={false}
-        >
-          <Controls />
-          <MiniMap nodeColor="var(--accent-terracotta)" maskColor="rgba(0,0,0,0.2)" />
-          <Background variant={BackgroundVariant.Dots} gap={12} size={1} />
-        </ReactFlow>
+        <h3 className="text-gold" style={{ marginBottom: '1.5rem', fontSize: '1.4rem' }}>Career Process Flow</h3>
+        
+        {/* Node 1 */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', background: 'rgba(255,255,255,0.03)', padding: '1.5rem', borderRadius: '16px', width: '100%', maxWidth: '600px', border: '1px solid rgba(216, 180, 226, 0.2)' }}>
+          <div style={{ background: 'rgba(216, 180, 226, 0.1)', padding: '1rem', borderRadius: '50%' }}>
+            <Beaker className="text-lilac" size={28} />
+          </div>
+          <div>
+            <h4 style={{ fontSize: '1.2rem', marginBottom: '0.2rem' }}>Academics</h4>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', margin: 0 }}>Bharati Vidyapeeth (BE Chemical)</p>
+          </div>
+        </div>
+
+        <ArrowDown className="text-gold" size={24} style={{ opacity: 0.5 }} />
+
+        {/* Node 2 */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', background: 'rgba(255,255,255,0.03)', padding: '1.5rem', borderRadius: '16px', width: '100%', maxWidth: '600px', border: '1px solid rgba(226, 180, 180, 0.2)' }}>
+          <div style={{ background: 'rgba(226, 180, 180, 0.1)', padding: '1rem', borderRadius: '50%' }}>
+            <Factory className="text-rose" size={28} />
+          </div>
+          <div>
+            <h4 style={{ fontSize: '1.2rem', marginBottom: '0.2rem' }}>Scale Translation</h4>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', margin: 0 }}>RCF (Continuous) & APL (Batch)</p>
+          </div>
+        </div>
+
+        <ArrowDown className="text-gold" size={24} style={{ opacity: 0.5 }} />
+
+        {/* Node 3 */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', background: 'rgba(255,255,255,0.03)', padding: '1.5rem', borderRadius: '16px', width: '100%', maxWidth: '600px', border: '1px solid rgba(138, 180, 248, 0.2)' }}>
+          <div style={{ background: 'rgba(138, 180, 248, 0.1)', padding: '1rem', borderRadius: '50%' }}>
+            <FlaskConical className="text-blue" size={28} />
+          </div>
+          <div>
+            <h4 style={{ fontSize: '1.2rem', marginBottom: '0.2rem' }}>Research & Optimization</h4>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', margin: 0 }}>Algal Biodiesel & Process Scavengers</p>
+          </div>
+        </div>
       </motion.div>
-      <div style={{ marginTop: '2rem', display: 'flex', flexWrap: 'wrap', gap: '2rem', justifyContent: 'center' }}>
+      
+      {/* Detail Cards */}
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', justifyContent: 'center' }}>
         <motion.div 
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="minimal-card" style={{ flex: '1 1 300px' }}
+          className="royal-card" style={{ flex: '1 1 300px' }}
         >
-          <h3 className="text-terracotta">Academics</h3>
-          <p>CGPA: 6.95 (Mumbai University)</p>
-          <p>NPTEL Aspen Plus Simulation (Silver)</p>
-          <p>VBA & Regression Modeling (Udemy)</p>
+          <h3 className="text-gold" style={{ marginBottom: '1.5rem' }}>Academic Foundation</h3>
+          <ul style={{ color: 'var(--text-muted)', lineHeight: '1.8', paddingLeft: '1.2rem' }}>
+            <li><strong>CGPA:</strong> 6.95 (Mumbai University)</li>
+            <li><strong>Certification:</strong> NPTEL Aspen Plus Simulation (Silver Medal)</li>
+            <li><strong>Computation:</strong> VBA & Regression Modeling (Udemy)</li>
+          </ul>
         </motion.div>
+        
         <motion.div 
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="minimal-card" style={{ flex: '1 1 300px' }}
+          className="royal-card" style={{ flex: '1 1 300px' }}
         >
-          <h3 className="text-neon-green">Scale Translation</h3>
-          <p>Proficient in steady-state continuous operations (RCF) and dynamic batch processing (APL).</p>
+          <h3 className="text-rose" style={{ marginBottom: '1.5rem' }}>Industrial Experience</h3>
+          <ul style={{ color: 'var(--text-muted)', lineHeight: '1.8', paddingLeft: '1.2rem' }}>
+            <li><strong>Continuous Flow:</strong> Sulphuric Acid production at RCF.</li>
+            <li><strong>Batch Kinetics:</strong> Specialty Chemicals processing at APL.</li>
+            <li><strong>Core Focus:</strong> Steady-state operations & dynamic scaling.</li>
+          </ul>
         </motion.div>
       </div>
     </section>

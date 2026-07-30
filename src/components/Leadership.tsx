@@ -4,71 +4,91 @@ import { Network, Users, Mic, Award } from 'lucide-react';
 
 export const Leadership: React.FC = () => {
   return (
-    <section className="section-container">
-      <h2 className="section-title">Leadership & Orchestration</h2>
+    <section id="leadership">
+      <h2 className="section-title text-gradient-accent">Leadership & Orchestration</h2>
+      <p className="section-subtitle">
+        Directing teams, managing logistics, and bridging disciplines.
+      </p>
+
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
         
         <motion.div 
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
-          className="minimal-card" style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}
+          className="royal-card" style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}
         >
-          <Network className="text-neon-blue" size={32} />
+          <div style={{ background: 'rgba(255,255,255,0.05)', padding: '1rem', borderRadius: '12px', flexShrink: 0 }}>
+            <Network className="text-blue" size={32} />
+          </div>
           <div>
-            <h3>Technical Head, ARISE Team (2025–2026)</h3>
-            <p style={{ color: 'var(--text-muted)' }}>
-              Led a team of 7 to develop an in-house application for the InQUIZitive Tech Quiz at the premier International Technical Level Paper Presentation festival.
-            </p>
+            <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem' }}>ARISE Tech Festival (2025–2026)</h3>
+            <ul style={{ color: 'var(--text-muted)', lineHeight: '1.8', paddingLeft: '1.2rem', margin: 0 }}>
+              <li><strong>Role:</strong> Technical Head</li>
+              <li><strong>Team Size:</strong> Led a team of 7 developers.</li>
+              <li><strong>Impact:</strong> Developed an in-house application for the InQUIZitive Tech Quiz at the premier International Technical Level Paper Presentation festival.</li>
+            </ul>
           </div>
         </motion.div>
 
         <motion.div 
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="glass-panel" style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}
+          className="royal-card" style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}
         >
-          <Users className="text-terracotta" size={32} />
+          <div style={{ background: 'rgba(255,255,255,0.05)', padding: '1rem', borderRadius: '12px', flexShrink: 0 }}>
+            <Users className="text-gold" size={32} />
+          </div>
           <div>
-            <h3>Technical Head, ChEQ26 (2026)</h3>
-            <p style={{ color: 'var(--text-muted)' }}>
-              Coordinated a team of 6 for the Prof. N.R. Kamath Memorial Quiz, bridging academic legacies with inter-collegiate interaction.
-            </p>
+            <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem' }}>ChEQ26 (2026)</h3>
+            <ul style={{ color: 'var(--text-muted)', lineHeight: '1.8', paddingLeft: '1.2rem', margin: 0 }}>
+              <li><strong>Role:</strong> Technical Head</li>
+              <li><strong>Team Size:</strong> Coordinated a team of 6.</li>
+              <li><strong>Impact:</strong> Executed the Prof. N.R. Kamath Memorial Quiz, bridging academic legacies with inter-collegiate interaction.</li>
+            </ul>
           </div>
         </motion.div>
 
         <motion.div 
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="glass-panel" style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}
+          className="royal-card" style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}
         >
-          <Mic className="text-neon-green" size={32} />
+          <div style={{ background: 'rgba(255,255,255,0.05)', padding: '1rem', borderRadius: '12px', flexShrink: 0 }}>
+            <Mic className="text-lilac" size={32} />
+          </div>
           <div>
-            <h3>Anchoring Head, Council Anchoring Team (2024–2026)</h3>
-            <p style={{ color: 'var(--text-muted)' }}>
-              Managed 12 members coordinating with cultural events and student committees. Validated by Cambridge Assessment English B2 First (FCE) Certificate.
-            </p>
+            <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem' }}>Council Anchoring Team (2024–2026)</h3>
+            <ul style={{ color: 'var(--text-muted)', lineHeight: '1.8', paddingLeft: '1.2rem', margin: 0 }}>
+              <li><strong>Role:</strong> Anchoring Head</li>
+              <li><strong>Team Size:</strong> Managed 12 members.</li>
+              <li><strong>Impact:</strong> Coordinated large-scale cultural events; validated by Cambridge Assessment English B2 First (FCE) Certificate.</li>
+            </ul>
           </div>
         </motion.div>
 
         <motion.div 
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="glass-panel" style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}
+          className="royal-card" style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}
         >
-          <Award className="text-gold" size={32} />
+          <div style={{ background: 'rgba(255,255,255,0.05)', padding: '1rem', borderRadius: '12px', flexShrink: 0 }}>
+            <Award className="text-rose" size={32} />
+          </div>
           <div>
-            <h3>Supervisor, The Literature Club (2025–2026)</h3>
-            <p style={{ color: 'var(--text-muted)' }}>
-              Managed meetings, agendas, and digital outreach, emphasizing digital marketing and logistical administration.
-            </p>
+            <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem' }}>The Literature Club (2025–2026)</h3>
+            <ul style={{ color: 'var(--text-muted)', lineHeight: '1.8', paddingLeft: '1.2rem', margin: 0 }}>
+              <li><strong>Role:</strong> Supervisor</li>
+              <li><strong>Focus:</strong> Digital marketing and logistical administration.</li>
+              <li><strong>Impact:</strong> Managed meetings, agendas, and expanding digital outreach for the club.</li>
+            </ul>
           </div>
         </motion.div>
 

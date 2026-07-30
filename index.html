@@ -14,42 +14,61 @@
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;900&family=Outfit:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div id="root">
-      <style>
-        /* Preloader Styles */
-        #preloader {
-          position: fixed;
-          top: 0; left: 0; width: 100%; height: 100%;
-          background: #000000;
-          display: flex; flex-direction: column; align-items: center; justify-content: center;
-          z-index: 9999;
-          font-family: 'League Spartan', sans-serif;
-        }
-        .skeleton-orb {
-          width: 80px; height: 80px;
-          border-radius: 50%;
-          background: linear-gradient(90deg, rgba(74,222,128,0.2) 25%, rgba(74,222,128,0.5) 50%, rgba(74,222,128,0.2) 75%);
-          background-size: 200% 100%;
-          animation: skeleton-load 1.5s infinite;
-          margin-bottom: 2rem;
-          box-shadow: 0 0 20px rgba(74,222,128,0.3);
-        }
-        .skeleton-text {
-          width: 200px; height: 24px;
-          border-radius: 12px;
-          background: linear-gradient(90deg, rgba(255,255,255,0.1) 25%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.1) 75%);
-          background-size: 200% 100%;
-          animation: skeleton-load 1.5s infinite;
-        }
-        @keyframes skeleton-load {
-          0% { background-position: 200% 0; }
-          100% { background-position: -200% 0; }
-        }
-      </style>
-      <div id="preloader">
-        <div class="skeleton-orb"></div>
-        <div class="skeleton-text"></div>
-      </div>
+    <div id="root"></div>
+    <style>
+      /* Preloader Styles */
+      #preloader {
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: #0a0a1a;
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        z-index: 9999;
+        font-family: 'League Spartan', sans-serif;
+        transition: opacity 0.8s ease, visibility 0.8s ease;
+      }
+      .hex-loader {
+        width: 60px;
+        height: 100px;
+        position: relative;
+        animation: hex-spin 2s infinite ease-in-out;
+      }
+      .hex-loader::before, .hex-loader::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-left: 2px solid var(--accent-gold, #f3d250);
+        border-right: 2px solid var(--accent-lilac, #d8b4e2);
+        border-radius: 4px;
+      }
+      .hex-loader::before {
+        transform: rotate(60deg);
+      }
+      .hex-loader::after {
+        transform: rotate(-60deg);
+      }
+      .preloader-text {
+        margin-top: 2rem;
+        color: #d8b4e2;
+        font-size: 1.2rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        animation: pulse-text 1.5s infinite;
+      }
+      @keyframes hex-spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      @keyframes pulse-text {
+        0%, 100% { opacity: 0.4; }
+        50% { opacity: 1; }
+      }
+    </style>
+    <div id="preloader">
+      <div class="hex-loader"></div>
+      <div class="preloader-text">Loading...</div>
     </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
