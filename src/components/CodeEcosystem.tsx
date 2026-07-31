@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Gamepad2, Calendar, Target, Globe, Terminal, Cpu } from 'lucide-react';
 
 export const CodeEcosystem: React.FC = () => {
   const [formula, setFormula] = useState('sin(x)+cos(y)');
@@ -121,11 +122,26 @@ export const CodeEcosystem: React.FC = () => {
           className="royal-card" style={{ display: 'flex', flexDirection: 'column' }}
         >
           <h3 className="text-gold" style={{ marginBottom: '1rem' }}>Lazer Showdown</h3>
-          <ul style={{ color: 'var(--text-muted)', lineHeight: '1.8', paddingLeft: '1.2rem', flex: 1 }}>
-            <li><strong>Type:</strong> Physics-based Puzzle Game</li>
-            <li><strong>Event:</strong> Developed for ARISE Tech Festival</li>
-            <li><strong>Core Mechanic:</strong> Utilizes vector calculations and Cartesian grid logic.</li>
-          </ul>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', flex: 1, marginTop: '0.5rem' }}>
+            <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+              <Gamepad2 size={18} className="text-gold" style={{ marginTop: '4px', flexShrink: 0 }} />
+              <p style={{ color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>
+                <span style={{ color: '#fff', fontWeight: 600, fontFamily: 'var(--font-heading)' }}>Type:</span> Physics-based Puzzle Game
+              </p>
+            </div>
+            <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+              <Calendar size={18} className="text-gold" style={{ marginTop: '4px', flexShrink: 0 }} />
+              <p style={{ color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>
+                <span style={{ color: '#fff', fontWeight: 600, fontFamily: 'var(--font-heading)' }}>Event:</span> Developed for ARISE Tech Festival
+              </p>
+            </div>
+            <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+              <Cpu size={18} className="text-gold" style={{ marginTop: '4px', flexShrink: 0 }} />
+              <p style={{ color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>
+                <span style={{ color: '#fff', fontWeight: 600, fontFamily: 'var(--font-heading)' }}>Core Mechanic:</span> Utilizes vector calculations and Cartesian grid logic.
+              </p>
+            </div>
+          </div>
           <a href="https://denzven.github.io" target="_blank" className="pastel-btn btn-secondary" style={{ alignSelf: 'flex-start', marginTop: '1.5rem' }}>Play Build</a>
         </motion.div>
         
@@ -137,11 +153,26 @@ export const CodeEcosystem: React.FC = () => {
           className="royal-card" style={{ display: 'flex', flexDirection: 'column' }}
         >
           <h3 className="text-blue" style={{ marginBottom: '1rem' }}>Spyboy OSINT Ecosystem</h3>
-          <ul style={{ color: 'var(--text-muted)', lineHeight: '1.8', paddingLeft: '1.2rem', flex: 1 }}>
-            <li><strong>Scale:</strong> Deployed across 6,800+ Discord servers.</li>
-            <li><strong>Role:</strong> Core open-source contributor.</li>
-            <li><strong>Focus:</strong> Automated intelligence gathering & reconnaissance modules.</li>
-          </ul>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', flex: 1, marginTop: '0.5rem' }}>
+            <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+              <Globe size={18} className="text-blue" style={{ marginTop: '4px', flexShrink: 0 }} />
+              <p style={{ color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>
+                <span style={{ color: '#fff', fontWeight: 600, fontFamily: 'var(--font-heading)' }}>Scale:</span> Deployed across 6,800+ Discord servers.
+              </p>
+            </div>
+            <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+              <Terminal size={18} className="text-blue" style={{ marginTop: '4px', flexShrink: 0 }} />
+              <p style={{ color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>
+                <span style={{ color: '#fff', fontWeight: 600, fontFamily: 'var(--font-heading)' }}>Role:</span> Core open-source contributor.
+              </p>
+            </div>
+            <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+              <Target size={18} className="text-blue" style={{ marginTop: '4px', flexShrink: 0 }} />
+              <p style={{ color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>
+                <span style={{ color: '#fff', fontWeight: 600, fontFamily: 'var(--font-heading)' }}>Focus:</span> Automated intelligence gathering & reconnaissance modules.
+              </p>
+            </div>
+          </div>
           <a href="https://spyboy.in/" target="_blank" className="pastel-btn btn-secondary" style={{ alignSelf: 'flex-start', marginTop: '1.5rem' }}>View Ecosystem</a>
         </motion.div>
 
@@ -153,10 +184,20 @@ export const CodeEcosystem: React.FC = () => {
           className="royal-card" style={{ display: 'flex', flexDirection: 'column' }}
         >
           <h3 className="text-rose" style={{ marginBottom: '1rem' }}>Object-Oriented Utilities</h3>
-          <ul style={{ color: 'var(--text-muted)', lineHeight: '1.8', paddingLeft: '1.2rem', flex: 1 }}>
-            <li><strong>PetGame:</strong> Java-based robust state management application.</li>
-            <li><strong>Spotify Script:</strong> Advanced DOM manipulation for automated screenshot generation.</li>
-          </ul>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', flex: 1, marginTop: '0.5rem' }}>
+            <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+              <Terminal size={18} className="text-rose" style={{ marginTop: '4px', flexShrink: 0 }} />
+              <p style={{ color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>
+                <span style={{ color: '#fff', fontWeight: 600, fontFamily: 'var(--font-heading)' }}>PetGame:</span> Java-based robust state management application.
+              </p>
+            </div>
+            <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+              <Cpu size={18} className="text-rose" style={{ marginTop: '4px', flexShrink: 0 }} />
+              <p style={{ color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>
+                <span style={{ color: '#fff', fontWeight: 600, fontFamily: 'var(--font-heading)' }}>Spotify Script:</span> Advanced DOM manipulation for automated screenshot generation.
+              </p>
+            </div>
+          </div>
           <a href="https://github.com/denzven" target="_blank" className="pastel-btn btn-secondary" style={{ alignSelf: 'flex-start', marginTop: '1.5rem' }}>View GitHub</a>
         </motion.div>
       </div>
